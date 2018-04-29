@@ -1,6 +1,6 @@
 <template>
     <form-field :field-class="'adultcount-field'" :field-target="'qikres-adultcount'" :label-text="label">
-        <number-field :field-id="'qikres-adultcount'" :max="9" :min="1"></number-field>
+        <number-field :value="value" :field-id="'qikres-adultcount'" :max="9" :min="1" v-on:input="$emit('input', parseInt($event))"></number-field>
     </form-field>
 </template>
 
@@ -9,6 +9,9 @@
     import NumberField from "./NumberField.vue";
     export default {
         name : "AdultCount",
+        props : {
+            value : Number
+        },
         components: {
             "form-field" : FormField,
             "number-field" : NumberField

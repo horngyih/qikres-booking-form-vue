@@ -1,6 +1,6 @@
 <template>
     <form-field :field-class="fieldClass" :field-target="fieldID" :label-text="label">
-        <number-field :field-id="id" :max="maxCount" :min="minCount"></number-field>
+        <number-field :value="childCount" :field-id="fieldID" :max="maxCount" :min="minCount" v-on:input="$emit( 'input', $event)"></number-field>
     </form-field>
 </template>
 
@@ -14,7 +14,7 @@
             "number-field" : NumberField
         },
         props : {
-
+            childCount : Number
         },
         data() {
             return {
